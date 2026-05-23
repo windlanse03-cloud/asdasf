@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Стол №7 — психологическая визуальная новелла</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+            scroll-behavior: smooth;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Header */
+        .header {
+            background-color: #000000;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .header nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .header a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: opacity 0.2s;
+            cursor: pointer;
+        }
+
+        .header a:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+        }
+
+        .header-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* общие секции */
+        .section {
+            width: 100%;
+            padding: 4rem 2rem;
+        }
+
+        .full-image-block {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .full-image-block .overlay {
+            background-color: rgba(0,0,0,0.5);
+            width: 100%;
+            padding: 3rem 1rem;
+        }
+
+        .full-image-block h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .full-image-block p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .oval-btn {
+            display: inline-block;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 60px;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            text-decoration: none;
+        }
+
+        .oval-btn:hover {
+            background-color: #2563eb;
+            transform: scale(1.02);
+        }
+
+        .white-bg-text {
+            background-color: white;
+            color: black;
+            text-align: center;
+        }
+
+        .white-bg-text .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .white-bg-text p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* карточки команды */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background: white;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .team-card img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 12px;
+            background-color: #f3f4f6;
+            display: block;
+        }
+
+        .team-card h3 {
+            margin-top: 1rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .team-card p {
+            color: #4b5563;
+            font-size: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        /* контакты */
+        .contacts-block {
+            background: white;
+            text-align: center;
+        }
+        .contacts-block .contact-info {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin: 0.5rem 0;
+        }
+        .contacts-block .contact-info a {
+            color: black;
+            text-decoration: none;
+            border-bottom: 1px solid #ccc;
+        }
+        .contacts-block .contact-info a:hover {
+            border-bottom-color: black;
+        }
+
+        /* подвал */
+        .footer {
+            background-color: black;
+            text-align: center;
+            padding: 2rem;
+        }
+        .footer img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        /* якоря отступов для фиксированного хедера */
+        .anchor {
+            scroll-margin-top: 80px;
+        }
+
+        /* мобильные */
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+            }
+            .header nav {
+                gap: 1rem;
+            }
+            .header a {
+                font-size: 0.85rem;
+            }
+            .full-image-block h2 {
+                font-size: 2rem;
+            }
+            .full-image-block p {
+                font-size: 1.1rem;
+            }
+            .section {
+                padding: 2rem 1rem;
+            }
+            .team-card img {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+        }
+
+        /* заглушки для изображений можно заменить */
+        .bg-img-1 {
+            background-image: url('https://placehold.co/1920x800/2a2a2a/white?text=Стол+№7+фон+1');
+        }
+        .bg-img-concept {
+            background-image: url('https://placehold.co/1920x700/1e1e2f/white?text=Концепция+фона');
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ШАПКА (блок 1) -->
+    <header class="header">
+        <nav>
+            <a class="nav-link" data-target="team-block">Команда разработки</a>
+            <a class="nav-link" data-target="contacts-block">Контакты</a>
+            <img class="header-logo" src="https://placehold.co/40x40/333/white?text=7" alt="Логотип игры">
+            <a class="nav-link" data-target="about-game">О игре</a>
+            <a class="nav-link" data-target="concept-block">Концепция</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- БЛОК 2: полноэкранное изображение с двумя текстами и кнопкой -->
+        <section class="full-image-block bg-img-1" id="hero">
+            <div class="overlay">
+                <h2>Ты сам это написал</h2>
+                <p>Но не помнишь. Почему?</p>
+                <a class="oval-btn" id="hero-team-btn">Команда разработки</a>
+            </div>
+        </section>
+
+        <!-- БЛОК 3: О игре (белый фон, черный текст) -->
+        <section id="about-game" class="section white-bg-text anchor">
+            <div class="container">
+                <h2 style="font-size: 2rem; margin-bottom: 1rem;">О игре</h2>
+                <p><strong>«Стол №7»</strong> — психологическая визуальная новелла о студенте Илье, который теряет память и находит записки своим почерком, которых не помнит. Кто стирает его воспоминания? Куратор? Староста Алиса? Или он сам?</p>
+                <p>Собирайте улики, сравнивайте показания персонажей, решайте, кому верить. Игра не имеет сохранений — каждое решение окончательно. Три концовки: разоблачение, бегство или клиника. 35 минут напряжения.</p>
+                <p style="margin-top: 1rem;">Атмосфера паранойи, газлайтинг и уникальная механика ненадёжного рассказчика ждут вас.</p>
+            </div>
+        </section>
+
+        <!-- БЛОК 4: Концепция (фон, заголовок и подзаголовок) -->
+        <section id="concept-block" class="full-image-block bg-img-concept anchor">
+            <div class="overlay">
+                <h2>Концепция игры</h2>
+                <p>Никаких сохранений. Только ваша память и холодная паранойя. Студенческий колледж превращается в лабиринт лжи, а главный враг — ваше собственное забытое "я".</p>
+            </div>
+        </section>
+
+        <!-- БЛОК 5: Команда разработки (6 карточек) -->
+        <section id="team-block" class="section anchor" style="background: white;">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="font-size: 2rem;">Команда разработки</h2>
+                <p style="color: #4b5563;">Люди, которые создали мир «Стол №7»</p>
+            </div>
+            <div class="team-grid">
+                <!-- карточка 1 -->
+                <div class="team-card">
+                    <img src="https://placehold.co/400x400/2c3e50/white?text=Алексей" alt="Геймдизайнер">
+                    <h3>Алексей Смирнов</h3>
+                    <p>Геймдизайнер, сценарист</p>
+                </div>
+                <!-- карточка 2 -->
+                <div class="team-card">
+                    <img src="https://placehold.co/400x400/8b5cf6/white?text=Екатерина" alt="Художник">
+                    <h3>Екатерина Воронина</h3>
+                    <p>Художник, персонажи</p>
+                </div>
+                <!-- карточка 3 -->
+                <div class="team-card">
+                    <img src="https://placehold.co/400x400/10b981/white?text=Дмитрий" alt="Программист">
+                    <h3>Дмитрий Кравцов</h3>
+                    <p>Ren'Py разработчик</p>
+                </div>
+                <!-- карточка 4 -->
+                <div class="team-card">
+                    <img src="https://placehold.co/400x400/ef4444/white?text=Мария" alt="Композитор">
+                    <h3>Мария Тихонова</h3>
+                    <p>Композитор, саунд-дизайн</p>
+                </div>
+                <!-- карточка 5 -->
+                <div class="team-card">
+                    <img src="https://placehold.co/400x400/f59e0b/white?text=Иван" alt="Маркетинг">
+                    <h3>Иван Белов</h3>
+                    <p>Менеджер сообщества</p>
+                </div>
+                <!-- карточка 6 -->
+                <div class="team-card">
+                    <img src="https://placehold.co/400x400/3b82f6/white?text=Анна" alt="Тех. арт">
+                    <h3>Анна Морозова</h3>
+                    <p>Технический художник</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- БЛОК 6: Контакты (номер, почта) -->
+        <section id="contacts-block" class="section contacts-block anchor" style="background: white;">
+            <div class="container" style="max-width: 600px; margin: 0 auto;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Контакты</h2>
+                <div class="contact-info">
+                    📞 <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+                </div>
+                <div class="contact-info" style="margin-top: 0.8rem;">
+                    ✉️ <a href="mailto:info@table7game.ru">info@table7game.ru</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- БЛОК 7: Подвал (только иконка игры на черном фоне) -->
+        <footer class="footer">
+            <img src="https://placehold.co/60x60/ffffff/333?text=7" alt="Иконка игры Стол №7">
+        </footer>
+    </main>
+
+    <script>
+        // Функция для плавной прокрутки к элементу
+        function scrollToElement(elementId) {
+            const target = document.getElementById(elementId);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Обработчики для кнопок в шапке (все с data-target)
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('data-target');
+                if (targetId) {
+                    scrollToElement(targetId);
+                }
+            });
+        });
+
+        // Обработчик кнопки внутри блока 2 (овальная голубая кнопка)
+        const heroBtn = document.getElementById('hero-team-btn');
+        if (heroBtn) {
+            heroBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                scrollToElement('team-block');
+            });
+        }
+
+        // Также обрабатываем клики по кнопкам шапки – они уже работают через data-target
+        // Для удобства можно добавить fallback для всех ссылок в nav (просто безопасность)
+        // Дополнительно, если потребуется вручную задать якоря для кнопок в навигации
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // уже обработано выше, но предотвращаем лишнее
+            });
+        });
+    </script>
+</body>
+</html>
