@@ -233,14 +233,6 @@
                 margin: 0 auto;
             }
         }
-
-        /* заглушки для изображений можно заменить */
-        .bg-img-1 {
-            background-image: url('https://placehold.co/1920x800/2a2a2a/white?text=Стол+№7+фон+1');
-        }
-        .bg-img-concept {
-            background-image: url('https://placehold.co/1920x700/1e1e2f/white?text=Концепция+фона');
-        }
     </style>
 </head>
 <body>
@@ -250,7 +242,7 @@
         <nav>
             <a class="nav-link" data-target="team-block">Команда разработки</a>
             <a class="nav-link" data-target="contacts-block">Контакты</a>
-            <img class="header-logo" src="https://placehold.co/40x40/333/white?text=7" alt="Логотип игры">
+            <img class="header-logo" src="images/logo.png" alt="Логотип игры">
             <a class="nav-link" data-target="about-game">О игре</a>
             <a class="nav-link" data-target="concept-block">Концепция</a>
         </nav>
@@ -258,7 +250,7 @@
 
     <main>
         <!-- БЛОК 2: полноэкранное изображение с двумя текстами и кнопкой -->
-        <section class="full-image-block bg-img-1" id="hero">
+        <section class="full-image-block" id="hero" style="background-image: url('images/concept-bg.png'); background-size: cover; background-position: center;">
             <div class="overlay">
                 <h2>Ты сам это написал</h2>
                 <p>Но не помнишь. Почему?</p>
@@ -277,7 +269,7 @@
         </section>
 
         <!-- БЛОК 4: Концепция (фон, заголовок и подзаголовок) -->
-        <section id="concept-block" class="full-image-block bg-img-concept anchor">
+        <section id="concept-block" class="full-image-block anchor" style="background-image: url('images/hero-bg.png'); background-size: cover; background-position: center;">
             <div class="overlay">
                 <h2>Концепция игры</h2>
                 <p>Никаких сохранений. Только ваша память и холодная паранойя. Студенческий колледж превращается в лабиринт лжи, а главный враг — ваше собственное забытое "я".</p>
@@ -345,7 +337,7 @@
 
         <!-- БЛОК 7: Подвал (только иконка игры на черном фоне) -->
         <footer class="footer">
-            <img src="https://placehold.co/60x60/ffffff/333?text=7" alt="Иконка игры Стол №7">
+            <img src="images/footer-icon.png" alt="Иконка игры Стол №7">
         </footer>
     </main>
 
@@ -378,15 +370,6 @@
                 scrollToElement('team-block');
             });
         }
-
-        // Также обрабатываем клики по кнопкам шапки – они уже работают через data-target
-        // Для удобства можно добавить fallback для всех ссылок в nav (просто безопасность)
-        // Дополнительно, если потребуется вручную задать якоря для кнопок в навигации
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                // уже обработано выше, но предотвращаем лишнее
-            });
-        });
     </script>
 </body>
 </html>
