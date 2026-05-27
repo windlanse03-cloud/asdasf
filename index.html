@@ -233,6 +233,14 @@
                 margin: 0 auto;
             }
         }
+
+        /* заглушки для изображений можно заменить */
+        .bg-img-1 {
+            background-image: url('https://ibb.co/dJD3RH5z/1920x800/2a2a2a/white?text=Стол+№7+фон+1');
+        }
+        .bg-img-concept {
+            background-image: url('https://ibb.co/DgMmLDfd/1920x700/1e1e2f/white?text=Концепция+фона');
+        }
     </style>
 </head>
 <body>
@@ -242,8 +250,7 @@
         <nav>
             <a class="nav-link" data-target="team-block">Команда разработки</a>
             <a class="nav-link" data-target="contacts-block">Контакты</a>
-            <!-- ЛОГОТИП: замените src на путь к вашему логотипу -->
-            <img class="header-logo" src="images/logo.png" alt="Логотип игры">
+            <img class="header-logo" src="https://ibb.co/h1MfN6pk/40x40/333/white?text=7" alt="Логотип игры">
             <a class="nav-link" data-target="about-game">О игре</a>
             <a class="nav-link" data-target="concept-block">Концепция</a>
         </nav>
@@ -251,8 +258,7 @@
 
     <main>
         <!-- БЛОК 2: полноэкранное изображение с двумя текстами и кнопкой -->
-        <!-- ЗДЕСЬ ЗАДАЙТЕ ФОН: замените 'images/block2-bg.jpg' на свой путь -->
-        <section class="full-image-block" id="hero" style="background-image: url('https://ibb.co/dJD3RH5z'); background-size: cover; background-position: center;">
+        <section class="full-image-block bg-img-1" id="hero">
             <div class="overlay">
                 <h2>Ты сам это написал</h2>
                 <p>Но не помнишь. Почему?</p>
@@ -271,8 +277,7 @@
         </section>
 
         <!-- БЛОК 4: Концепция (фон, заголовок и подзаголовок) -->
-        <!-- ЗДЕСЬ ЗАДАЙТЕ ФОН: замените 'images/block4-bg.jpg' на свой путь -->
-        <section id="concept-block" class="full-image-block anchor" style="background-image: url('https://ibb.co/DgMmLDfd'); background-size: cover; background-position: center;">
+        <section id="concept-block" class="full-image-block bg-img-concept anchor">
             <div class="overlay">
                 <h2>Концепция игры</h2>
                 <p>Никаких сохранений. Только ваша память и холодная паранойя. Студенческий колледж превращается в лабиринт лжи, а главный враг — ваше собственное забытое "я".</p>
@@ -340,8 +345,7 @@
 
         <!-- БЛОК 7: Подвал (только иконка игры на черном фоне) -->
         <footer class="footer">
-            <!-- ИКОНКА ПОДВАЛА: замените src на путь к вашей иконке -->
-            <img src="images/footer-icon.png" alt="Иконка игры Стол №7">
+            <img src="https://https://ibb.co/h1MfN6pk/60x60/ffffff/333?text=7" alt="Иконка игры Стол №7">
         </footer>
     </main>
 
@@ -374,6 +378,15 @@
                 scrollToElement('team-block');
             });
         }
+
+        // Также обрабатываем клики по кнопкам шапки – они уже работают через data-target
+        // Для удобства можно добавить fallback для всех ссылок в nav (просто безопасность)
+        // Дополнительно, если потребуется вручную задать якоря для кнопок в навигации
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // уже обработано выше, но предотвращаем лишнее
+            });
+        });
     </script>
 </body>
 </html>
