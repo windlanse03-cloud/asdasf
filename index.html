@@ -200,7 +200,6 @@
             width: 60px;
             height: 60px;
             object-fit: contain;
-            /* убираем фильтр, чтобы иконка сохранила свои цвета */
         }
 
         /* якоря отступов для фиксированного хедера */
@@ -234,14 +233,52 @@
             }
         }
 
-        /* Фоновые изображения из ваших ссылок (преобразованы в прямые) */
+        /* Фоновые изображения из ваших ссылок */
         .bg-img-1 {
-            background-image: url('https://i.ibb.co/DgQ6ZjRS/concept-bg-png.png');
+            background-image: url('https://i.ibb.co/dJD3RH5z/bg-second-block.jpg');
         }
         .bg-img-concept {
             background-image: url('https://i.ibb.co/DgMmLDfd/bg-fourth-block.jpg');
         }
-        /* Если прямые ссылки не работают, замените URL на те, что получите, нажав на картинке «Скопировать адрес изображения» */
+
+        /* Стили для блока персонажей */
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto 0 auto;
+        }
+        .character-card {
+            background: white;
+            text-align: center;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .character-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+        .character-card img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            background-color: #e5e7eb;
+        }
+        .character-card h3 {
+            margin: 1rem 1rem 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #111827;
+        }
+        .character-card p {
+            margin: 0 1rem 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #4b5563;
+        }
     </style>
 </head>
 <body>
@@ -251,15 +288,16 @@
         <nav>
             <a class="nav-link" data-target="team-block">Команда разработки</a>
             <a class="nav-link" data-target="contacts-block">Контакты</a>
-            <!-- Иконка в шапке — ваша вторая ссылка -->
             <img class="header-logo" src="https://i.ibb.co/h1MfN6pk/icon-header-footer.png" alt="Логотип игры">
             <a class="nav-link" data-target="about-game">О игре</a>
             <a class="nav-link" data-target="concept-block">Концепция</a>
+            <!-- Новая кнопка "Персонажи" -->
+            <a class="nav-link" data-target="characters-block">Персонажи</a>
         </nav>
     </header>
 
     <main>
-        <!-- БЛОК 2: фон = первая картинка (dJD3RH5z) -->
+        <!-- БЛОК 2: фон = первая картинка -->
         <section class="full-image-block bg-img-1" id="hero">
             <div class="overlay">
                 <h2>Ты сам это написал</h2>
@@ -268,7 +306,7 @@
             </div>
         </section>
 
-        <!-- БЛОК 3: О игре (белый фон, черный текст) -->
+        <!-- БЛОК 3: О игре -->
         <section id="about-game" class="section white-bg-text anchor">
             <div class="container">
                 <h2 style="font-size: 2rem; margin-bottom: 1rem;">О игре</h2>
@@ -278,7 +316,7 @@
             </div>
         </section>
 
-        <!-- БЛОК 4: Концепция — фон = третья картинка (DgMmLDfd) -->
+        <!-- БЛОК 4: Концепция -->
         <section id="concept-block" class="full-image-block bg-img-concept anchor">
             <div class="overlay">
                 <h2>Концепция игры</h2>
@@ -286,44 +324,78 @@
             </div>
         </section>
 
-        <!-- БЛОК 5: Команда разработки (6 карточек) -->
+        <!-- НОВЫЙ БЛОК: Персонажи (5 персонажей) -->
+        <section id="characters-block" class="section anchor" style="background: #f9fafb;">
+            <div style="text-align: center; margin-bottom: 1rem;">
+                <h2 style="font-size: 2rem; color: #111827;">Персонажи</h2>
+                <p style="color: #4b5563; max-width: 600px; margin: 0.5rem auto 0;">Ключевые фигуры, в чьих словах и поступках придётся разобраться</p>
+            </div>
+            <div class="characters-grid">
+                <!-- Персонаж 1: Илья -->
+                <div class="character-card">
+                    <img src="https://placehold.co/400x400/3b82f6/white?text=Илья" alt="Илья">
+                    <h3>Илья</h3>
+                    <p>Главный герой. Студент, теряющий память. Его собственные записки ведут его по запутанному следу, а доверять можно только себе — или нет?</p>
+                </div>
+                <!-- Персонаж 2: Алиса -->
+                <div class="character-card">
+                    <img src="https://placehold.co/400x400/ec4891/white?text=Алиса" alt="Алиса">
+                    <h3>Алиса</h3>
+                    <p>Староста группы. Заботливая, но слишком много знает о тайнах колледжа. Её сочувствие — искреннее или часть спектакля?</p>
+                </div>
+                <!-- Персонаж 3: Куратор -->
+                <div class="character-card">
+                    <img src="https://placehold.co/400x400/6b7280/white?text=Куратор" alt="Куратор">
+                    <h3>Куратор</h3>
+                    <p>Строгий преподаватель. Он ведёт странную программу «Когнитивная устойчивость» и советует Илье не копать слишком глубоко. Чего боится куратор?</p>
+                </div>
+                <!-- Персонаж 4: Дима -->
+                <div class="character-card">
+                    <img src="https://placehold.co/400x400/f59e0b/white?text=Дима" alt="Дима">
+                    <h3>Дима</h3>
+                    <p>Сосед Ильи по комнате. Легкомысленный друг, который вдруг начинает избегать прямых ответов. Что он скрывает?</p>
+                </div>
+                <!-- Персонаж 5: Тень (загадочный персонаж) -->
+                <div class="character-card">
+                    <img src="https://placehold.co/400x400/1e293b/white?text=Тень" alt="Тень">
+                    <h3>«Тень»</h3>
+                    <p>Таинственный собеседник, оставляющий подсказки в телефоне Ильи. Его голос звучит пугающе знакомо. Возможно, это отражение самого героя?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- БЛОК 5: Команда разработки -->
         <section id="team-block" class="section anchor" style="background: white;">
             <div style="text-align: center; margin-bottom: 2rem;">
                 <h2 style="font-size: 2rem;">Команда разработки</h2>
                 <p style="color: #4b5563;">Люди, которые создали мир «Стол №7»</p>
             </div>
             <div class="team-grid">
-                <!-- карточка 1 -->
                 <div class="team-card">
                     <img src="https://placehold.co/400x400/2c3e50/white?text=Алексей" alt="Геймдизайнер">
                     <h3>Алексей Смирнов</h3>
                     <p>Геймдизайнер, сценарист</p>
                 </div>
-                <!-- карточка 2 -->
                 <div class="team-card">
                     <img src="https://placehold.co/400x400/8b5cf6/white?text=Екатерина" alt="Художник">
                     <h3>Екатерина Воронина</h3>
                     <p>Художник, персонажи</p>
                 </div>
-                <!-- карточка 3 -->
                 <div class="team-card">
                     <img src="https://placehold.co/400x400/10b981/white?text=Дмитрий" alt="Программист">
                     <h3>Дмитрий Кравцов</h3>
                     <p>Ren'Py разработчик</p>
                 </div>
-                <!-- карточка 4 -->
                 <div class="team-card">
                     <img src="https://placehold.co/400x400/ef4444/white?text=Мария" alt="Композитор">
                     <h3>Мария Тихонова</h3>
                     <p>Композитор, саунд-дизайн</p>
                 </div>
-                <!-- карточка 5 -->
                 <div class="team-card">
                     <img src="https://placehold.co/400x400/f59e0b/white?text=Иван" alt="Маркетинг">
                     <h3>Иван Белов</h3>
                     <p>Менеджер сообщества</p>
                 </div>
-                <!-- карточка 6 -->
                 <div class="team-card">
                     <img src="https://placehold.co/400x400/3b82f6/white?text=Анна" alt="Тех. арт">
                     <h3>Анна Морозова</h3>
@@ -345,14 +417,13 @@
             </div>
         </section>
 
-        <!-- БЛОК 7: Подвал — иконка та же, что в шапке (вторая ссылка) -->
+        <!-- БЛОК 7: Подвал -->
         <footer class="footer">
             <img src="https://i.ibb.co/h1MfN6pk/icon-header-footer.png" alt="Иконка игры Стол №7">
         </footer>
     </main>
 
     <script>
-        // Функция для плавной прокрутки к элементу
         function scrollToElement(elementId) {
             const target = document.getElementById(elementId);
             if (target) {
@@ -360,7 +431,6 @@
             }
         }
 
-        // Обработчики для кнопок в шапке (все с data-target)
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
@@ -372,7 +442,6 @@
             });
         });
 
-        // Обработчик кнопки внутри блока 2 (овальная голубая кнопка)
         const heroBtn = document.getElementById('hero-team-btn');
         if (heroBtn) {
             heroBtn.addEventListener('click', function(e) {
