@@ -200,7 +200,7 @@
             width: 60px;
             height: 60px;
             object-fit: contain;
-            filter: brightness(0) invert(1);
+            /* убираем фильтр, чтобы иконка сохранила свои цвета */
         }
 
         /* якоря отступов для фиксированного хедера */
@@ -234,13 +234,14 @@
             }
         }
 
-        /* заглушки для изображений можно заменить */
+        /* Фоновые изображения из ваших ссылок (преобразованы в прямые) */
         .bg-img-1 {
-            background-image: url('https://ibb.co/dJD3RH5z/1920x800/2a2a2a/white?text=Стол+№7+фон+1');
+            background-image: url('https://i.ibb.co/dJD3RH5z/bg-second-block.jpg');
         }
         .bg-img-concept {
-            background-image: url('https://ibb.co/DgMmLDfd/1920x700/1e1e2f/white?text=Концепция+фона');
+            background-image: url('https://i.ibb.co/DgMmLDfd/bg-fourth-block.jpg');
         }
+        /* Если прямые ссылки не работают, замените URL на те, что получите, нажав на картинке «Скопировать адрес изображения» */
     </style>
 </head>
 <body>
@@ -250,14 +251,15 @@
         <nav>
             <a class="nav-link" data-target="team-block">Команда разработки</a>
             <a class="nav-link" data-target="contacts-block">Контакты</a>
-            <img class="header-logo" src="https://ibb.co/h1MfN6pk/40x40/333/white?text=7" alt="Логотип игры">
+            <!-- Иконка в шапке — ваша вторая ссылка -->
+            <img class="header-logo" src="https://i.ibb.co/h1MfN6pk/icon-header-footer.png" alt="Логотип игры">
             <a class="nav-link" data-target="about-game">О игре</a>
             <a class="nav-link" data-target="concept-block">Концепция</a>
         </nav>
     </header>
 
     <main>
-        <!-- БЛОК 2: полноэкранное изображение с двумя текстами и кнопкой -->
+        <!-- БЛОК 2: фон = первая картинка (dJD3RH5z) -->
         <section class="full-image-block bg-img-1" id="hero">
             <div class="overlay">
                 <h2>Ты сам это написал</h2>
@@ -276,7 +278,7 @@
             </div>
         </section>
 
-        <!-- БЛОК 4: Концепция (фон, заголовок и подзаголовок) -->
+        <!-- БЛОК 4: Концепция — фон = третья картинка (DgMmLDfd) -->
         <section id="concept-block" class="full-image-block bg-img-concept anchor">
             <div class="overlay">
                 <h2>Концепция игры</h2>
@@ -330,7 +332,7 @@
             </div>
         </section>
 
-        <!-- БЛОК 6: Контакты (номер, почта) -->
+        <!-- БЛОК 6: Контакты -->
         <section id="contacts-block" class="section contacts-block anchor" style="background: white;">
             <div class="container" style="max-width: 600px; margin: 0 auto;">
                 <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Контакты</h2>
@@ -343,9 +345,9 @@
             </div>
         </section>
 
-        <!-- БЛОК 7: Подвал (только иконка игры на черном фоне) -->
+        <!-- БЛОК 7: Подвал — иконка та же, что в шапке (вторая ссылка) -->
         <footer class="footer">
-            <img src="https://https://ibb.co/h1MfN6pk/60x60/ffffff/333?text=7" alt="Иконка игры Стол №7">
+            <img src="https://i.ibb.co/h1MfN6pk/icon-header-footer.png" alt="Иконка игры Стол №7">
         </footer>
     </main>
 
@@ -378,15 +380,6 @@
                 scrollToElement('team-block');
             });
         }
-
-        // Также обрабатываем клики по кнопкам шапки – они уже работают через data-target
-        // Для удобства можно добавить fallback для всех ссылок в nav (просто безопасность)
-        // Дополнительно, если потребуется вручную задать якоря для кнопок в навигации
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                // уже обработано выше, но предотвращаем лишнее
-            });
-        });
     </script>
 </body>
 </html>
