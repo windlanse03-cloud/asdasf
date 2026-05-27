@@ -80,9 +80,9 @@
             color: white;
         }
 
-        /* Более тёмный оверлей для затемнения фоновых картинок (чтобы текст читался лучше) */
+        /* Более тёмный оверлей для затемнения фоновых картинок */
         .full-image-block .overlay {
-            background-color: rgba(0, 0, 0, 0.7);  /* было 0.5, увеличено для затемнения */
+            background-color: rgba(0, 0, 0, 0.7);
             width: 100%;
             padding: 3rem 1rem;
         }
@@ -234,16 +234,13 @@
             }
         }
 
-        /* Фоновые изображения — ваши ссылки (2 и 4 блок) */
+        /* Фоновые изображения — новые прямые ссылки */
         .bg-img-1 {
-            background-image: url('https://iimg.su/i/cqYhOd');
+            background-image: url('https://allwebs.ru/images/2026/05/27/03b09f505b4d6f62455c849862de20ee.png');
         }
         .bg-img-concept {
-            background-image: url('https://iimg.su/i/hp89Ut');
+            background-image: url('https://allwebs.ru/images/2026/05/27/4ada23041a497de908fb6e787b5bdd44.png');
         }
-        /* Примечание: если картинки не отображаются, откройте каждую ссылку в браузере, 
-           скопируйте прямой URL изображения (правой кнопкой -> "Копировать адрес картинки") 
-           и замените эти адреса. */
 
         /* Стили для блока персонажей */
         .characters-grid {
@@ -300,7 +297,7 @@
     </header>
 
     <main>
-        <!-- БЛОК 2: фон = cqYhOd (с затемнением через overlay) -->
+        <!-- БЛОК 2: новый фон -->
         <section class="full-image-block bg-img-1" id="hero">
             <div class="overlay">
                 <h2>Стол№7</h2>
@@ -319,7 +316,7 @@
             </div>
         </section>
 
-        <!-- БЛОК 4: Концепция (фон = hp89Ut, затемнение) -->
+        <!-- БЛОК 4: Концепция с новым фоном -->
         <section id="concept-block" class="full-image-block bg-img-concept anchor">
             <div class="overlay">
                 <h2>Полное погружение в психологический хоррор без скримеров</h2>
@@ -327,7 +324,7 @@
             </div>
         </section>
 
-        <!-- БЛОК: Персонажи (5 персонажей) -->
+        <!-- БЛОК: Персонажи -->
         <section id="characters-block" class="section anchor" style="background: #f9fafb;">
             <div style="text-align: center; margin-bottom: 1rem;">
                 <h2 style="font-size: 2rem; color: #111827;">Персонажи</h2>
