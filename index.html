@@ -80,8 +80,9 @@
             color: white;
         }
 
+        /* Более тёмный оверлей для затемнения фоновых картинок (чтобы текст читался лучше) */
         .full-image-block .overlay {
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.7);  /* было 0.5, увеличено для затемнения */
             width: 100%;
             padding: 3rem 1rem;
         }
@@ -233,13 +234,16 @@
             }
         }
 
-        /* Фоновые изображения из ваших ссылок */
+        /* Фоновые изображения — ваши ссылки (2 и 4 блок) */
         .bg-img-1 {
-            background-image: url('https://iimg.su/i/KuIBpZ');
+            background-image: url('https://iimg.su/i/cqYhOd');
         }
         .bg-img-concept {
             background-image: url('https://iimg.su/i/hp89Ut');
         }
+        /* Примечание: если картинки не отображаются, откройте каждую ссылку в браузере, 
+           скопируйте прямой URL изображения (правой кнопкой -> "Копировать адрес картинки") 
+           и замените эти адреса. */
 
         /* Стили для блока персонажей */
         .characters-grid {
@@ -283,7 +287,7 @@
 </head>
 <body>
 
-    <!-- ШАПКА (блок 1) -->
+    <!-- ШАПКА -->
     <header class="header">
         <nav>
             <a class="nav-link" data-target="team-block">Команда разработки</a>
@@ -291,13 +295,12 @@
             <img class="header-logo" src="https://i.ibb.co/h1MfN6pk/icon-header-footer.png" alt="Логотип игры">
             <a class="nav-link" data-target="about-game">О игре</a>
             <a class="nav-link" data-target="concept-block">Концепция</a>
-            <!-- Новая кнопка "Персонажи" -->
             <a class="nav-link" data-target="characters-block">Персонажи</a>
         </nav>
     </header>
 
     <main>
-        <!-- БЛОК 2: фон = первая картинка -->
+        <!-- БЛОК 2: фон = cqYhOd (с затемнением через overlay) -->
         <section class="full-image-block bg-img-1" id="hero">
             <div class="overlay">
                 <h2>Стол№7</h2>
@@ -316,7 +319,7 @@
             </div>
         </section>
 
-        <!-- БЛОК 4: Концепция -->
+        <!-- БЛОК 4: Концепция (фон = hp89Ut, затемнение) -->
         <section id="concept-block" class="full-image-block bg-img-concept anchor">
             <div class="overlay">
                 <h2>Полное погружение в психологический хоррор без скримеров</h2>
@@ -324,38 +327,33 @@
             </div>
         </section>
 
-        <!-- НОВЫЙ БЛОК: Персонажи (5 персонажей) -->
+        <!-- БЛОК: Персонажи (5 персонажей) -->
         <section id="characters-block" class="section anchor" style="background: #f9fafb;">
             <div style="text-align: center; margin-bottom: 1rem;">
                 <h2 style="font-size: 2rem; color: #111827;">Персонажи</h2>
                 <p style="color: #4b5563; max-width: 600px; margin: 0.5rem auto 0;">Ключевые фигуры, в чьих словах и поступках придётся разобраться</p>
             </div>
             <div class="characters-grid">
-                <!-- Персонаж 1: Илья -->
                 <div class="character-card">
                     <img src="https://placehold.co/400x400/3b82f6/white?text=Илья" alt="Илья">
                     <h3>Илья</h3>
                     <p>Главный герой. Студент, теряющий память. Его собственные записки ведут его по запутанному следу, а доверять можно только себе — или нет?</p>
                 </div>
-                <!-- Персонаж 2: Алиса -->
                 <div class="character-card">
                     <img src="https://placehold.co/400x400/ec4891/white?text=Алиса" alt="Алиса">
                     <h3>Алиса</h3>
                     <p>Староста группы. Заботливая, но слишком много знает о тайнах колледжа. Её сочувствие — искреннее или часть спектакля?</p>
                 </div>
-                <!-- Персонаж 3: Куратор -->
                 <div class="character-card">
                     <img src="https://placehold.co/400x400/6b7280/white?text=Куратор" alt="Куратор">
                     <h3>Куратор</h3>
                     <p>Спокойный, улыбчивый преподаватель в пиджаке. Выглядит как заботливый наставник. На самом деле — руководитель тайных экспериментов по стиранию памяти. Антагонист.</p>
                 </div>
-                <!-- Персонаж 4: Дима -->
                 <div class="character-card">
                     <img src="https://placehold.co/400x400/f59e0b/white?text=Костя" alt="Костя">
                     <h3>Костя</h3>
                     <p>Сосед Ильи по комнате. Легкомысленный друг, который вдруг начинает избегать прямых ответов. Что он скрывает?</p>
                 </div>
-                <!-- Персонаж 5: Тень (загадочный персонаж) -->
                 <div class="character-card">
                     <img src="https://placehold.co/400x400/1e293b/white?text=Полина" alt="Полина">
                     <h3>Полина</h3>
@@ -364,7 +362,7 @@
             </div>
         </section>
 
-        <!-- БЛОК 5: Команда разработки -->
+        <!-- БЛОК: Команда разработки -->
         <section id="team-block" class="section anchor" style="background: white;">
             <div style="text-align: center; margin-bottom: 2rem;">
                 <h2 style="font-size: 2rem;">Команда разработки</h2>
@@ -404,7 +402,7 @@
             </div>
         </section>
 
-        <!-- БЛОК 6: Контакты -->
+        <!-- БЛОК: Контакты -->
         <section id="contacts-block" class="section contacts-block anchor" style="background: white;">
             <div class="container" style="max-width: 600px; margin: 0 auto;">
                 <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Контакты</h2>
@@ -417,7 +415,7 @@
             </div>
         </section>
 
-        <!-- БЛОК 7: Подвал -->
+        <!-- Подвал -->
         <footer class="footer">
             <img src="https://i.ibb.co/h1MfN6pk/icon-header-footer.png" alt="Иконка игры Стол №7">
         </footer>
